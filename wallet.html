@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billetera Virtual</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-- Load font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <section>
+        <div class="container-form container mb-5">
+            <div class="formulario row">
+                <div class="btn-exit col-lg-12">
+                    <div id="exit">Cerrar sesión</div>
+                </div>
+                <form id="form-operation">
+                    <h3>Bienvenido <span id="showNameUser"></span></h3>
+                    <hr class="line-list">
+                    <h4 class="list-balance" >Saldo disponible <span id="balance">0</span> </h4>
+                    <hr class="line-list">
+                    <h4>Ingrese una operación</h4>
+                    <hr class="line-list">
+                    <div id="print-alert"></div>
+                    <div class="input-group col-lg-12">
+                        <div class="input-contenedor mb-3 col-lg-3">
+                            <label for="operation-select">Tipo de operación</label>
+                            <div class="flex">
+                                <select class="form-select form-control" id="operation-select">
+                                    <option value="default">Selecciona una operación...</option>
+                                    <option value="credit-$">Agregar crédito en $</option>
+                                    <option value="debit-$">Agregar débito en $</option>
+                                    <option value="credit-u$s">Agregar crédito en u$s</option>
+                                    <option value="debit-u$s">Agregar débito en u$s</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-contenedor mb-3 col-lg-3">
+                            <label for="operation-date">Fecha</label>
+                            <div class="flex">
+                                <input type="date" class="form-control shadow-none" id="operation-date">
+                            </div>
+                        </div>
+                        <div class="input-contenedor mb-3 col-lg-3">
+                            <label for="operation-description">Descripción</label>
+                            <div class="flex">
+                                <input type="text" class="form-control shadow-none" id="operation-description"
+                                    placeholder="Descripción breve" maxlength="30">
+                            </div>
+                        </div>
+                        <div class="input-contenedor mb-3 col-lg-3">
+                            <label for="operation-amount">Monto</label>
+                            <div class="flex">
+                                <input type="text" class="form-control shadow-none" id="operation-amount"
+                                    placeholder="Ingrese el monto">
+                            </div>
+                        </div>
+                        <button type="submit" class="col-lg-12 mt-3" id="btn-add-item">Aceptar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="container-list container flex">
+            <div class="col-lg-9">
+            <div class="row mb-5">
+                <div class="col-lg-2">
+                    <button type="button" id="btn-wallet-pesos" data-bs-toggle="button" aria-pressed="true">$</button>
+                </div>
+                <div class="col-lg-2">
+                    <button type="button" id="btn-wallet-dolar">u$s</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h6 class="list-title">Descripción</h6>
+                    <hr class="line-list">
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="list-title">Débitos</h6>
+                    <hr class="line-list">
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="list-title">Créditos</h6>
+                    <hr class="line-list">
+                </div>
+            </div>
+
+            <div class="row" id="listPesos"></div>
+            <div class="row" id="listDollar"></div>
+            <div class="row">
+                <div class="col-lg-3 mt-3 offset-lg-6 total-debit">
+                    <h6 class="list-title">Total Débitos</h6>
+                    <hr class="line-list">
+                    <div id="list-debit"></div>
+                </div>
+                <div class="col-lg-3 mt-3 total-credit">
+                    <h6 class="list-title">Total Créditos</h6>
+                    <hr class="line-list">
+                    <div id="list-credit"></div>
+                </div>
+            </div>
+        </div>
+            <div class="row col-lg-3 list-quotes" id="listDollarQuotes">
+                <h5 class="col-lg-12 text-center mb-2" id="titleQuotes">Cotización Dolar</h5>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer src="./js/wallet.js" type="module"></script>
+</body>
+
+</html>
